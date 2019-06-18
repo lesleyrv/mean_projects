@@ -1,0 +1,30 @@
+.box2{
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;}
+
+.boxSubmit{
+    width: 300px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.box3{
+    width: 400px;
+}
+.cakeImage{
+    height: 250px;
+    width: 300px;
+}
+
+.cakeList {
+    margin-top: 50px;
+    height: 500px;
+    overflow-y: auto;
+}
+
+form {
+    margin-top: 30px;
+}
+    

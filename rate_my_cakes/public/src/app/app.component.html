@@ -1,0 +1,53 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>
+                Rate my Cakes!
+            </h1>
+            <h4>Submit a cake to be rated: </h4>
+            <form (submit)="onNewCakeSubmit()">
+                <!-- <p>{{ newCake | json }}</p> -->
+                <div class="form-group  box2">
+                    <label for="formGroupExampleInput">Baker Name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="newCake.bakerName" [(ngModel)]="newCake.bakerName" placeholder="Baker Name">
+                </div>
+                <div class="form-group  box2">
+                    <label for="formGroupExampleInput2">Image URL</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" name="newCake.cakeImage" [(ngModel)]="newCake.cakeImage"placeholder="Image URL">
+                </div>
+                <button type="submit" class="btn btn-primary boxSubmit">Submit</button>
+            </form>
+        </div>
+          <!-- need ngFor loop in here -->
+          <div class="col cakeList">
+            <div class="row" *ngFor = "let cake of cakes">
+              <div class="col mt-2">
+                <img (click)="onButtonClickParam(cake._id)" src="{{cake.cakeImage}}" alt = "cake image" width="200">
+              </div> 
+              <div class="col">
+                <form (submit)="onNewReviewSubmit(cake._id)">
+                    <select name="newReview.rating" [(ngModel)]="newReview.rating" class="form-control">
+                      <option value="5">5 Stars</option>
+                      <option value="4">4 Stars</option>
+                      <option value="3">3 Stars</option>
+                      <option value="2">2 Stars</option>
+                      <option value="1">1 Star</option>
+                    </select> 
+                    <div class="form-group">
+                        <label for="comments">Comments</label>
+                        <input type="text" name="newReview.comment" [(ngModel)]="newReview.comment" class="form-control" id="comments" placeholder="Comments">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+<hr>
+<!-- ngIf= <is function where to get the information to pass (get the details of Cake review info)> -->
+<app-comp1 *ngIf="cakeToPass" [childCake]="cakeToPass"></app-comp1>
+
+
+
